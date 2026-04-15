@@ -24,9 +24,13 @@ public class App {
                 case 1:
                     listAllVehicles(vehicles);
                     break;
+                case 2:
+                    searchByMakeModel(vehicles);
+                    break;
                 default:
-                    System.out.println("That menu option is not implement yet. Sorry!");
+                    System.out.println("That menu option is not implemented yet. Sorry!");
             }
+            System.out.println();
         }
     }
 
@@ -49,6 +53,25 @@ public class App {
                 System.out.println(vehicle);
             }
         }
-        System.out.println();
+    }
+
+    static void searchByMakeModel(Vehicle[] vehicles) {
+        System.out.print("Enter Make / Model: ");
+        String makeModel = readLine();
+        for (Vehicle vehicle : vehicles) {
+            if (vehicle != null) {
+                if (vehicle.getMakeModel().toLowerCase().contains(makeModel.toLowerCase())) {
+                    System.out.println(vehicle);
+                }
+            }
+        }
+    }
+
+    static String readLine() {
+        String line = scan.nextLine();
+        if (line.isBlank()) {
+            line = scan.nextLine();
+        }
+        return line;
     }
 }
