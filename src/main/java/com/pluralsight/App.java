@@ -27,6 +27,9 @@ public class App {
                 case 2:
                     searchByMakeModel(vehicles);
                     break;
+                case 3:
+                    searchByPriceRange(vehicles);
+                    break;
                 case 4:
                     searchByColor(vehicles);
                     break;
@@ -67,6 +70,19 @@ public class App {
         for (Vehicle vehicle : vehicles) {
             if (vehicle != null) {
                 if (vehicle.getMakeModel().toLowerCase().contains(makeModel.toLowerCase())) {
+                    System.out.println(vehicle);
+                }
+            }
+        }
+    }
+    static void searchByPriceRange(Vehicle[] vehicles) {
+        System.out.print("Enter Bottom of Price Range: ");
+        float bottom = scan.nextFloat();
+        System.out.print("Enter Top of Price Range: ");
+        float top = scan.nextFloat();
+        for (Vehicle vehicle : vehicles) {
+            if (vehicle != null) {
+                if (vehicle.getPrice() >= bottom && vehicle.getPrice() <= top) {
                     System.out.println(vehicle);
                 }
             }
