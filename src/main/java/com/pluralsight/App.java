@@ -27,6 +27,9 @@ public class App {
                 case 2:
                     searchByMakeModel(vehicles);
                     break;
+                case 4:
+                    searchByColor(vehicles);
+                    break;
                 case 5:
                     addVehicle(vehicles);
                     break;
@@ -64,6 +67,17 @@ public class App {
         for (Vehicle vehicle : vehicles) {
             if (vehicle != null) {
                 if (vehicle.getMakeModel().toLowerCase().contains(makeModel.toLowerCase())) {
+                    System.out.println(vehicle);
+                }
+            }
+        }
+    }
+    static void searchByColor(Vehicle[] vehicles) {
+        System.out.print("Enter Color: ");
+        String color = readLine();
+        for (Vehicle vehicle : vehicles) {
+            if (vehicle != null) {
+                if (vehicle.getColor().toLowerCase().contains(color.toLowerCase())) {
                     System.out.println(vehicle);
                 }
             }
