@@ -27,6 +27,9 @@ public class App {
                 case 2:
                     searchByMakeModel(vehicles);
                     break;
+                case 5:
+                    addVehicle(vehicles);
+                    break;
                 default:
                     System.out.println("That menu option is not implemented yet. Sorry!");
             }
@@ -65,6 +68,35 @@ public class App {
                 }
             }
         }
+    }
+
+    static void addVehicle(Vehicle[] vehicles) {
+        System.out.print("Enter a vehicle ID: ");
+        long id = scan.nextLong();
+        System.out.print("Enter a make / model: ");
+        String makeModel = readLine();
+        System.out.print("Enter a color: ");
+        String color = readLine();
+        System.out.print("Enter an odometer reading: ");
+        int odometerReading = scan.nextInt();
+        System.out.print("Enter a price: ");
+        float price = scan.nextFloat();
+
+        Vehicle newVehicle = new Vehicle(
+                id,
+                makeModel,
+                color,
+                odometerReading,
+                price
+        );
+
+        for (int i = 0; i < vehicles.length; i++) {
+            if (vehicles[i] == null) {
+                vehicles[i] = newVehicle;
+                return;
+            }
+        }
+        System.out.println("Failed to add vehicle. Out of available slots.");
     }
 
     static String readLine() {
