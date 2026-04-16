@@ -23,23 +23,12 @@ public class App {
                 break;
             }
             switch (choice) {
-                case 1:
-                    listAllVehicles();
-                    break;
-                case 2:
-                    searchByMakeModel();
-                    break;
-                case 3:
-                    searchByPriceRange();
-                    break;
-                case 4:
-                    searchByColor();
-                    break;
-                case 5:
-                    addVehicle();
-                    break;
-                default:
-                    System.out.println("That menu option is not implemented yet. Sorry!");
+                case 1 -> listAllVehicles();
+                case 2 -> searchByMakeModel();
+                case 3 -> searchByPriceRange();
+                case 4 -> searchByColor();
+                case 5 -> addVehicle();
+                default -> System.out.println("That menu option is not implemented yet. Sorry!");
             }
             System.out.println();
         }
