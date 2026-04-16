@@ -94,6 +94,10 @@ public class App {
     }
 
     static void addVehicle() {
+        if (vehicleCount >= vehicles.length) {
+            System.out.println("I am sorry, there is not enough space for a new vehicle!");
+            return;
+        }
         System.out.print("Enter a vehicle ID: ");
         long id = scan.nextLong();
         System.out.print("Enter a make / model: ");
@@ -113,11 +117,7 @@ public class App {
                 price
         );
 
-        if (vehicleCount < vehicles.length) {
-            vehicles[vehicleCount++] = newVehicle;
-        } else {
-            System.out.println("Failed to add vehicle. Out of available slots.");
-        }
+        vehicles[vehicleCount++] = newVehicle;
     }
 
     static String readLine() {
